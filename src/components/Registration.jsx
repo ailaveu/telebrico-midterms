@@ -4,6 +4,7 @@ import guitarPhoto from "../assets/guitar-hero.jpg";
 
 
 function validateField(name, value) {
+
   switch (name) {
     case "guitarModel":
       if (!value.trim()) return "Guitar model is required.";
@@ -28,6 +29,7 @@ function validateField(name, value) {
       return "";
   }
 }
+
 
 export default function Registration({ onAddItem }) {
   const [formData, setFormData] = useState(emptyFormState);
@@ -78,6 +80,7 @@ export default function Registration({ onAddItem }) {
         </h2>
       </div>
 
+
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-[1fr_120px]">
         <div className="space-y-4">
           <div>
@@ -92,6 +95,7 @@ export default function Registration({ onAddItem }) {
               placeholder="e.g. Stratocaster Player II"
               className={inputClass("guitarModel")}
             />
+
             {errors.guitarModel && (
               <p className="mt-1 text-xs text-crimson-deep">{errors.guitarModel}</p>
             )}
@@ -115,6 +119,7 @@ export default function Registration({ onAddItem }) {
                   </option>
                 ))}
               </select>
+              
               {errors.bodyType && (
                 <p className="mt-1 text-xs text-crimson-deep">{errors.bodyType}</p>
               )}

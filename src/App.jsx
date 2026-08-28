@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Registration from "./components/Registration";
 import InventoryTable from "./components/InventoryTable";
+import ItemCard from "./components/ItemCard";
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -14,7 +15,6 @@ export default function App() {
 
   function handleSelectRow(item) {
     setActiveItem(item);
-    console.log("Selected row:", item);
   }
 
   return (
@@ -23,10 +23,11 @@ export default function App() {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <div>
             <h1 className="font-display text-2xl uppercase tracking-wide text-paper">
-              The <span className="text-crimson-bright">Sound</span> Registry
+              The<span className="text-crimson-bright">Sound</span> Registry
             </h1>
             <p className="font-mono text-xs text-paper/50">Guitar Store &amp; Inventory Manager</p>
           </div>
+
           <nav className="flex gap-1">
             <button
               onClick={() => setView("form")}
@@ -36,6 +37,7 @@ export default function App() {
             >
               Register
             </button>
+
             <button
               onClick={() => setView("registry")}
               className={`font-mono text-xs uppercase tracking-wide px-4 py-2 transition ${
@@ -46,6 +48,7 @@ export default function App() {
             </button>
           </nav>
         </div>
+
         <div className="fret-divider" />
       </header>
 
@@ -53,11 +56,14 @@ export default function App() {
         {view === "form" ? (
           <Registration onAddItem={handleAddItem} />
         ) : (
-          <InventoryTable
-            items={items}
-            activeItemId={activeItem?.id}
-            onSelectRow={handleSelectRow}
-          />
+          <>
+            <InventoryTable
+              items={items}
+              activeItemId={activeItem?.id}
+              onSelectRow={handleSelectRow}
+            />
+            <ItemCard activeItem={activeItem} />
+          </>
         )}
       </main>
 
