@@ -1,12 +1,20 @@
 import { useState } from "react";
 import Registration from "./components/Registration";
+import InventoryTable from "./components/InventoryTable";
 
 export default function App() {
   const [items, setItems] = useState([]);
+  const [activeItem, setActiveItem] = useState(null);
+  const [view, setView] = useState("form");
 
   function handleAddItem(newItem) {
     setItems((prev) => [...prev, newItem]);
-    console.log("Registered items so far:", [...items, newItem]);
+    setView("registry");
+  }
+
+  function handleSelectRow(item) {
+    setActiveItem(item);
+    console.log("Selected row:", item);
   }
 
   return (
@@ -19,12 +27,38 @@ export default function App() {
             </h1>
             <p className="font-mono text-xs text-paper/50">Guitar Store &amp; Inventory Manager</p>
           </div>
+          <nav className="flex gap-1">
+            <button
+              onClick={() => setView("form")}
+              className={`font-mono text-xs uppercase tracking-wide px-4 py-2 transition ${
+                view === "form" ? "bg-crimson text-white" : "text-paper/60 hover:text-paper"
+              }`}
+            >
+              Register
+            </button>
+            <button
+              onClick={() => setView("registry")}
+              className={`font-mono text-xs uppercase tracking-wide px-4 py-2 transition ${
+                view === "registry" ? "bg-crimson text-white" : "text-paper/60 hover:text-paper"
+              }`}
+            >
+              Registry ({items.length})
+            </button>
+          </nav>
         </div>
         <div className="fret-divider" />
       </header>
 
       <main className="mx-auto max-w-5xl space-y-6 px-6 py-8">
-        <Registration onAddItem={handleAddItem} />
+        {view === "form" ? (
+          <Registration onAddItem={handleAddItem} />
+        ) : (
+          <InventoryTable
+            items={items}
+            activeItemId={activeItem?.id}
+            onSelectRow={handleSelectRow}
+          />
+        )}
       </main>
 
       <footer className="mx-auto max-w-5xl px-6 py-6">
