@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import guitarPhoto from "../assets/guitar-hero.jpg";
+import profilePicture from "../assets/profile-card.jpg";
 
 export default function ItemCard({ activeItem }) {
   const [displayedItem, setDisplayedItem] = useState(null);
@@ -26,7 +26,7 @@ export default function ItemCard({ activeItem }) {
 
         <div className="flex gap-4 p-5">
           <img
-            src={guitarPhoto}
+            src={profilePicture}
             alt={displayedItem.guitarModel}
             className="h-28 w-28 shrink-0 object-cover"
           />
@@ -63,13 +63,10 @@ export default function ItemCard({ activeItem }) {
           </div>
         </div>
 
-
       )}
 
 
     </div>
-
-
 
   );
 }

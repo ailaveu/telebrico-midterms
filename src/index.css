@@ -30,7 +30,7 @@ body {
   font-family: var(--font-mono);
 }
 
-/* Fretboard divider: a repeating "string" pattern used as a section rule */
+
 .fret-divider {
   height: 6px;
   background-image: repeating-linear-gradient(
@@ -41,4 +41,5 @@ body {
     transparent 10px
   );
   opacity: 0.15;
+  
 }

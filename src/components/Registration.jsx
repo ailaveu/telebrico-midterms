@@ -74,7 +74,7 @@ export default function Registration({ onAddItem }) {
       errors[field] ? "border-crimson-deep" : "border-ink/20"
     }`;
 
-    
+
   return (
     <div className="border border-ink/15 bg-white">
       <div className="flex items-center justify-between border-b border-ink/15 bg-ink px-5 py-3">
