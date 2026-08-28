@@ -86,6 +86,7 @@ export default function InventoryTable({ items, activeItemId, onSelectRow }) {
             <span className="font-mono text-xs text-ink/50">
               Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
             </span>
+            
             <div className="flex gap-2">
               <button
                 onClick={() => table.previousPage()}
@@ -94,6 +95,7 @@ export default function InventoryTable({ items, activeItemId, onSelectRow }) {
               >
                 Previous
               </button>
+
               <button
                 onClick={() => table.nextPage()}
                 disabled={!table.getCanNextPage()}
@@ -101,6 +103,7 @@ export default function InventoryTable({ items, activeItemId, onSelectRow }) {
               >
                 Next
               </button>
+
             </div>
           </div>
         </>

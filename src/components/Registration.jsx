@@ -21,6 +21,7 @@ function validateField(name, value) {
       if (num < 1 || num > 100) return "Must be between 1 and 100.";
       return "";
     }
+
     case "manufacturerName":
       return value.trim() ? "" : "Manufacturer name is required.";
     case "userRole":
@@ -67,11 +68,13 @@ export default function Registration({ onAddItem }) {
     setTimeout(() => setSubmitted(false), 2000);
   }
 
+
   const inputClass = (field) =>
     `w-full border bg-white px-3 py-2 font-body text-sm text-ink outline-none transition focus:border-crimson ${
       errors[field] ? "border-crimson-deep" : "border-ink/20"
     }`;
 
+    
   return (
     <div className="border border-ink/15 bg-white">
       <div className="flex items-center justify-between border-b border-ink/15 bg-ink px-5 py-3">
@@ -119,7 +122,7 @@ export default function Registration({ onAddItem }) {
                   </option>
                 ))}
               </select>
-              
+
               {errors.bodyType && (
                 <p className="mt-1 text-xs text-crimson-deep">{errors.bodyType}</p>
               )}
