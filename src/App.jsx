@@ -85,7 +85,7 @@ export default function App() {
 
       <footer className="mx-auto max-w-5xl px-6 py-6">
         <p className="font-mono text-[11px] text-ink/30">
-          Set B Guitar Store &amp; Inventory Manager · Midterm Practical
+          Guitar Store &amp; Inventory Manager
         </p>
       </footer>
     </div>
